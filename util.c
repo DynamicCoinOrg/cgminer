@@ -1034,11 +1034,11 @@ int ser_number(unsigned char *s, int32_t val)
 	int32_t *i32 = (int32_t *)&s[1];
 	int len;
 
-	if (val < 128)
+	if (val < 128)  // 2^7
 		len = 1;
-	else if (val < 16512)
+	else if (val < 32768)   //2^15
 		len = 2;
-	else if (val < 2113664)
+	else if (val < 8388608) // 2^23
 		len = 3;
 	else
 		len = 4;
